@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+X-Nemo-Application-Type=silica-qt5
+Icon=harbour-bangumi
+Exec=harbour-bangumi
+Name=Bangumi
+Name[zh]=番組計劃
+Name[ja]=番組計画
+
