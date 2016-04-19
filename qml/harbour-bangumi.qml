@@ -10,6 +10,8 @@ ApplicationWindow
     property string passwd: Storage.readSetting('passwd')
     property var user: JSON.parse(Storage.readSetting('user') || 'null')
 
+    property var subjects: []
+
     function readSettings() {
         email = Storage.readSetting('email');
         passwd = Storage.readSetting('passwd');

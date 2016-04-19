@@ -8,16 +8,59 @@ Page {
 
     ListModel { id: prgModel }
 
+    property bool _loading: true
+
+    function reloadWatching() {
+        if (!user && email && passwd) {
+            console.log('New user');
+            user = {name: email, passwd: passwd};
+        }
+        console.log('user:', user.id);
+        if (user) {
+            console.log('login ...');
+            Bgm.auth(user, function(_user) {
+                if (!user.auth) { saveUser(_user); }
+                console.log('login done');
+                prgModel.clear();
+                Bgm.getWatching(user.id, function(resp) {
+                    console.log('got prgs');
+                    for (var i = resp.length - 1; i >= 0; i--) {
+                        console.log('add to model', i);
+                        var ep_ = resp[i].ep_status;
+                        var eps = resp[i].subject.eps;
+                        var doing = resp[i].subject.collection.doing;
+                        prgModel.append({
+                            sid: resp[i].subject.id,
+                            title: resp[i].name,
+                            cover: resp[i].subject.images.medium,
+                            prgs: ep_ + ' / ' + (eps || '??'),
+                            stat: doing + ' watching',
+                            weekday: resp[i].subject.air_weekday,
+                            ep_status: ep_,
+                        });
+                    }
+                    _loading = false;
+                });
+            });
+        } else {
+            console.error('No account');
+        }
+    }
+
     SilicaListView {
         anchors.fill: parent
 
         PullDownMenu {
             MenuItem {
+                text: qsTr("Refresh")
+                onClicked: reloadWatching()
+            }
+            MenuItem {
                 text: qsTr("Settings")
                 onClicked: pageStack.push("SettingsPage.qml")
             }
             MenuItem {
-                text: qsTr("Topics")
+                text: qsTr("Topics [TODO]")
                 //onClicked: pageStack.push("TopicsPage.qml")
             }
         }
@@ -137,14 +180,17 @@ Page {
                     // TODO
                     text: qsTr("Update status")
                     //onClicked: {}
-                    visible: false
                 }
             }
 
         }
 
+    }
 
-
+    BusyIndicator {
+        anchors.centerIn: parent
+        running: _loading && user.auth
+        size: BusyIndicatorSize.Large
     }
 
     onStatusChanged: {
@@ -157,38 +203,7 @@ Page {
     }
 
     Component.onCompleted: {
-        if (!user && email && passwd) {
-            console.log('New user');
-            user = {name: email, passwd: passwd};
-        }
-        console.log('user:', user.id);
-        if (user) {
-            console.log('login ...');
-            Bgm.auth(user, function(_user) {
-                if (!user.auth) { saveUser(_user); }
-                console.log('login done');
-                Bgm.getWatching(user.id, function(resp) {
-                    console.log('got prgs');
-                    for (var i = resp.length - 1; i >= 0; i--) {
-                        console.log('add to model', i);
-                        var ep_ = resp[i].ep_status;
-                        var eps = resp[i].subject.eps;
-                        var doing = resp[i].subject.collection.doing;
-                        prgModel.append({
-                            sid: resp[i].subject.id,
-                            title: resp[i].name,
-                            cover: resp[i].subject.images.medium,
-                            prgs: ep_ + ' / ' + (eps || '??'),
-                            stat: doing + ' watching',
-                            weekday: resp[i].subject.air_weekday,
-                            ep_status: ep_,
-                        });
-                    }
-                });
-            });
-        } else {
-            console.log('no account');
-        }
+        reloadWatching();
     }
 }
 
