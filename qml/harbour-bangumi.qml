@@ -12,6 +12,9 @@ ApplicationWindow
 
     property var subjects: []
 
+    property int currentIdx: 0
+    ListModel { id: prgModel }
+
     function readSettings() {
         email = Storage.readSetting('email');
         passwd = Storage.readSetting('passwd');

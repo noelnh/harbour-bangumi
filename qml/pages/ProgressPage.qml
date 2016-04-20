@@ -6,8 +6,6 @@ import "../js/bgm.js" as Bgm
 Page {
     id: page
 
-    ListModel { id: prgModel }
-
     property bool _loading: true
 
     function reloadWatching() {
@@ -33,6 +31,7 @@ Page {
                             sid: resp[i].subject.id,
                             title: resp[i].name,
                             cover: resp[i].subject.images.medium,
+                            coverC: resp[i].subject.images.common,
                             prgs: ep_ + ' / ' + (eps || '??'),
                             stat: doing + ' watching',
                             weekday: resp[i].subject.air_weekday,
@@ -76,6 +75,7 @@ Page {
             contentHeight: item.height
 
             onClicked: {
+                currentIdx = index;
                 pageStack.push('EpisodesPage.qml', {
                     'subjectId': sid,
                     'cover': cover,
