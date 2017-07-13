@@ -18,7 +18,11 @@ SOURCES += src/harbour-bangumi.cpp
 
 OTHER_FILES += qml/harbour-bangumi.qml \
     qml/cover/CoverPage.qml \
-    rpm/harbour-bangumi.changes.in \
+    qml/pages/ProgressPage.qml \
+    qml/pages/SubjectPage.qml \
+    qml/js/*.js \
+    qml/img/harbour-bangumi.png \
+    rpm/harbour-bangumi.changes \
     rpm/harbour-bangumi.spec \
     rpm/harbour-bangumi.yaml \
     translations/*.ts \
@@ -35,8 +39,3 @@ CONFIG += sailfishapp_i18n
 # following TRANSLATIONS line. And also do not forget to
 # modify the localized app name in the the .desktop file.
 TRANSLATIONS += translations/harbour-bangumi-de.ts
-
-DISTFILES += \
-    qml/pages/ProgressPage.qml \
-    qml/pages/SubjectPage.qml
-
