@@ -20,12 +20,11 @@ OTHER_FILES += qml/harbour-bangumi.qml \
     qml/cover/CoverPage.qml \
     qml/pages/*.qml \
     qml/js/*.js \
-    qml/img/harhour-bangumi.png \
+    qml/img/harbour-bangumi.png \
     rpm/harbour-bangumi.changes \
     rpm/harbour-bangumi.spec \
     rpm/harbour-bangumi.yaml \
     translations/*.ts \
-    python/Test.py \
     harbour-bangumi.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
