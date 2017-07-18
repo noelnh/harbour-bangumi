@@ -24,9 +24,9 @@ CoverBackground {
 
     onStatusChanged: {
         if (prgModel.count > 0) {
-            coverImage.source = prgModel.get(currentIdx).coverC;
+            coverImage.source = prgModel.get(current_idx).coverC;
         } else {
-            coverImage.source = "../img/harbour-bangumi.png";
+            coverImage.source = "../img/harhour-bangumi.png";
         }
     }
 }

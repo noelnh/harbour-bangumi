@@ -24,7 +24,6 @@ Page {
 
     function addToModel(resp) {
         epsModel.clear();
-        console.log('add to model');
         var fillModel = function() {
             var appendToModel = function(idx) {
                 epsModel.append({
@@ -44,7 +43,6 @@ Page {
                     sp_ids[sp_ids.length] = i;
                     continue;
                 }
-                console.log('adding', resp.eps[i].id);
                 appendToModel(i);
             }
             for (var i in sp_ids) {
@@ -62,14 +60,13 @@ Page {
         };
 
         // TODO refresh ?
-        Bgm.auth(user, function() {
-            Bgm.getProgress(user.id, subjectId, function(resp2) {
+        Bgm.auth(current_user, function() {
+            Bgm.getProgress(current_user.id, subjectId, function(resp2) {
                 for (var i in resp2.eps) {
                     var j = 0;
                     for (; j < resp.eps.length; j++) {
                         if (resp.eps[j].id === resp2.eps[i].id) {
-                            console.log('ep status:', resp2.eps[i].id,
-                            resp2.eps[i].status.url_name);
+                            console.log('ep status:', resp2.eps[i].id, resp2.eps[i].status.url_name);
                             resp.eps[j].mystatus = resp2.eps[i].status.id - 0
                             //epsModel.setProperty(j, 'mystatus', resp.eps[i].status.id-0);
                             break;

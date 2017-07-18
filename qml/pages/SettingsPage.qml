@@ -1,31 +1,11 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 
+import "../js/settings.js" as Settings
 import "../js/storage.js" as Storage
 
 Page {
     id: settingsPage
-
-    property string email: Storage.readSetting('email')
-    property string passwd: Storage.readSetting('passwd')
-
-    function saveSettings() {
-        if (email !== emailField.text) {
-            Storage.writeSetting('email', emailField.text);
-        }
-        if (passwdField.text && passwd !== passwdField.text) {
-            Storage.writeSetting('passwd', passwdField.text);
-        }
-        readSettings();
-    }
-    function clearAccount() {
-        email = '';
-        passwd = '';
-        user = null;
-        Storage.writeSetting('email', '');
-        Storage.writeSetting('passwd', '');
-        Storage.writeSetting('user', '');
-    }
 
     SilicaFlickable {
         contentHeight: settingsColumn.height + Theme.paddingLarge
@@ -33,8 +13,9 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Logout")
-                onClicked: clearAccount()
+                visible: false
+                text: qsTr("Reset")
+                onClicked: Storage.reset()
             }
         }
 
@@ -47,24 +28,36 @@ Page {
                 title: qsTr("Settings")
             }
 
-            SectionHeader {
-                text: qsTr("Account")
+            SectionHeader{
+                text: qsTr("Bangumi")
             }
 
-            TextField {
-                id: emailField
-                width: parent.width - Theme.paddingLarge
-                text: email
-                label: qsTr("Email address")
-                placeholderText: label
+            BackgroundItem {
+                visible: false
+                id: topicItem
+                width: parent.width
+                Image {
+                    id: rightIcon
+                    anchors {
+                        right: parent.right
+                        rightMargin: Theme.paddingSmall
+                        verticalCenter: parent.verticalCenter
+                    }
+                    source: 'image://theme/icon-m-right'
+                }
+                Label {
+                    text: qsTr("Accounts")
+                    anchors {
+                        left: parent.left
+                        leftMargin: Theme.horizontalPageMargin - Theme.paddingLarge + Theme.itemSizeExtraSmall
+                        verticalCenter: parent.verticalCenter
+                    }
+                }
+                onClicked: pageStack.push("AccountsPage.qml")
             }
 
-            TextField {
-                id: passwdField
-                width: parent.width - Theme.paddingLarge
-                echoMode: TextInput.PasswordEchoOnEdit
-                label: qsTr("Password")
-                placeholderText: passwd ? "Password (unchanged)" : label
+            SectionHeader{
+                text: qsTr("Behavior")
             }
 
             TextSwitch {
@@ -73,14 +66,13 @@ Page {
                 onCheckedChanged: {
                     debug = checked;
                 }
-                visible: false
             }
         }
     }
 
     onStatusChanged: {
         if (status == PageStatus.Deactivating) {
-            saveSettings();
+            //saveSettings();
         }
     }
 }

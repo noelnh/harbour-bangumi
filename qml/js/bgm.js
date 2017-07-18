@@ -1,48 +1,65 @@
 .pragma library
 
 .import "common.js" as Common
+.import "accounts.js" as Accounts
 
 var http = Common.http;
 var querystring = Common.querystring;
 
 var api = 'https://api.bgm.tv';
 var user = null;
-var _authed = false;
 var _debug = true;
 
-function auth(_user, onSuccess, onFailure) {
-    var callBack = function(resp, callback) {
-        if (typeof(callback) === 'function') {
-            callback(resp);
-        } else {
-            console.error(resp);
-            console.error('ERROR: invalid callback');
-        }
-    };
-    if (_user.auth) {
-        if (!user) user = _user;
-        callBack(user, onSuccess);
-    } else if (_user.name && _user.passwd) {
-        var path = '/auth?source=onAir';
-        var postData = querystring.stringify({
-            'username': _user.name,
-            'password': _user.passwd,
-            'auth': 0,
-            'sysuid': 0,
-            'sysusername': 0
-        });
-        http.post(path, postData, function(resp) {
-            user = resp;
-            if (_debug) console.log('Login success', user.id);
-            callBack(user, onSuccess);
-        }, function(err) {
-            user = null; // TODO ?
-            console.error('ERROR:', err);
-            callBack(err, onFailure);
-        });
+
+var handleCallback = function(resp, callback) {
+    if (typeof(callback) === 'function') {
+        callback(resp);
     } else {
-        callBack('ERROR: invalid user', onFailure);
+        console.error('ERROR: invalid callback');
     }
+};
+
+/**
+ * Auth Check
+ */
+function authCheck(_user, onSuccess, onFailure) {
+    if (_user && _user.id && _user.auth) {
+        // 1. _user is an (authenticated) user
+        user = _user;
+        handleCallback(user, onSuccess);
+    } else if (_user && _user.email && _user.passwd) {
+        // 2. _user is an account
+        auth(_user.email, _user.passwd, onSuccess, onFailure);
+    } else {
+        // 3. read account from db
+        var account = Accounts.current();
+        if (account && account.email && account.passwd) {
+            auth(account.email, account.passwd, onSuccess, onFailure);
+        } else {
+            handleCallback('ERROR: invalid user', onFailure);
+        }
+    }
+}
+
+
+function auth(email, passwd, onSuccess, onFailure) {
+    var path = '/auth?source=onAir';
+    var postData = querystring.stringify({
+        'username': email,
+        'password': passwd,
+        'auth': 0,
+        'sysuid': 0,
+        'sysusername': 0
+    });
+    http.post(path, postData, function(resp) {
+        user = resp;
+        if (_debug) console.log('Login success');
+        handleCallback(user, onSuccess);
+    }, function(err) {
+        user = null; // TODO ?
+        console.error('ERROR:', 'Login:', JSON.stringify(err));
+        handleCallback(err, onFailure);
+    });
 }
 
 function getWatching(uid, onSuccess, onFailure) {
@@ -141,19 +158,3 @@ function getMessages(onSuccess, onFailure) {
 function getCalendar(onSuccess, onFailure) {
     http.get('/calendar', onSuccess, onFailure);
 }
-
-
-exports.api = {
-    auth: auth,
-    getWatching: getWatching,
-    getProgress: getProgress,
-    getSubject: getSubject,
-    getCollection: getCollection,
-    search: search,
-    updateCollection: updateCollection,
-    updateEps: updateEps,
-    getMessages: getMessages,
-    getCalendar: getCalendar,
-};
-
-exports.user = function() { return user; };

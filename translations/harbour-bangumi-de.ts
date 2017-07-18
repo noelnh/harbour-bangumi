@@ -2,39 +2,105 @@
 <!DOCTYPE TS>
 <TS version="2.1">
 <context>
-    <name>EpisodesPage</name>
+    <name>AccountDialog</name>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="114"/>
+        <location filename="../qml/pages/AccountDialog.qml" line="36"/>
+        <source>Account</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountDialog.qml" line="40"/>
+        <source>New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountDialog.qml" line="40"/>
+        <source>Edit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountDialog.qml" line="49"/>
+        <source>Email address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountDialog.qml" line="57"/>
+        <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>AccountsPage</name>
+    <message>
+        <location filename="../qml/pages/AccountsPage.qml" line="44"/>
+        <source>Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountsPage.qml" line="51"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="118"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="63"/>
+        <source>Accounts</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountsPage.qml" line="73"/>
+        <source>Set one account as active!</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountsPage.qml" line="112"/>
+        <source>Active</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountsPage.qml" line="121"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountsPage.qml" line="156"/>
+        <source>Add account</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>EpisodesPage</name>
+    <message>
+        <location filename="../qml/pages/EpisodesPage.qml" line="111"/>
+        <source>Refresh</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/EpisodesPage.qml" line="115"/>
         <source>Update [TODO]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="169"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="166"/>
         <source>Episodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="187"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="184"/>
         <source>Watched</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="196"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="193"/>
         <source>Queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="205"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="202"/>
         <source>Drop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="230"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="227"/>
         <source>Air on </source>
         <translation type="unfinished"></translation>
     </message>
@@ -47,62 +113,62 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="58"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="50"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="62"/>
-        <source>Topics [TODO]</source>
+        <location filename="../qml/pages/ProgressPage.qml" line="46"/>
+        <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="68"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="60"/>
         <source>My Progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="143"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="135"/>
         <source>Monday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="145"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="137"/>
         <source>Tuesday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="147"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="139"/>
         <source>Wednesday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="149"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="141"/>
         <source>Thursday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="151"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="143"/>
         <source>Friday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="153"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="145"/>
         <source>Saturday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="155"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="147"/>
         <source>Sunday</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="175"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="167"/>
         <source>Watched EP.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="181"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="173"/>
         <source>Update status</source>
         <translation type="unfinished"></translation>
     </message>
@@ -110,32 +176,32 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="36"/>
-        <source>Logout</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="47"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="28"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="51"/>
-        <source>Account</source>
+        <location filename="../qml/pages/SettingsPage.qml" line="17"/>
+        <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="58"/>
-        <source>Email address</source>
+        <location filename="../qml/pages/SettingsPage.qml" line="32"/>
+        <source>Bangumi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="66"/>
-        <source>Password</source>
+        <location filename="../qml/pages/SettingsPage.qml" line="49"/>
+        <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="71"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="60"/>
+        <source>Behavior</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="64"/>
         <source>Enable debugging</source>
         <translation type="unfinished"></translation>
     </message>

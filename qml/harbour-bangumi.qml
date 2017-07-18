@@ -2,34 +2,28 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 import "pages"
 
-import "js/storage.js" as Storage
+import "js/accounts.js" as Accounts
 
 ApplicationWindow
 {
-    property string email: Storage.readSetting('email')
-    property string passwd: Storage.readSetting('passwd')
-    property var user: JSON.parse(Storage.readSetting('user') || 'null')
+    property var current_user: Accounts.current('user')
 
     property var subjects: []
 
-    property int currentIdx: 0
-    ListModel { id: prgModel }
+    property int current_idx: 0
 
-    function readSettings() {
-        email = Storage.readSetting('email');
-        passwd = Storage.readSetting('passwd');
-        user = JSON.parse(Storage.readSetting('user') || 'null');
+    property bool to_reload_watching: true
+
+    function updateCurrentUser() {
+        current_user = Accounts.current('user')
     }
-    function saveUser(_user) {
-        console.log('Saving user');
-        user = _user;
-        Storage.writeSetting('user', JSON.stringify(_user));
-    }
+
+    property int leftPadding: 25
+
+    ListModel { id: prgModel }
 
     initialPage: Component { ProgressPage { } }
     cover: Qt.resolvedUrl("cover/CoverPage.qml")
     allowedOrientations: Orientation.All
     _defaultPageOrientations: Orientation.All
 }
-
-

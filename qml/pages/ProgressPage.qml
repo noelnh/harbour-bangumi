@@ -2,48 +2,40 @@ import QtQuick 2.2
 import Sailfish.Silica 1.0
 
 import "../js/bgm.js" as Bgm
+import "../js/accounts.js" as Accounts
 
 Page {
     id: page
 
-    property bool _loading: true
+    property bool _loading: false
 
     function reloadWatching() {
-        if (!user && email && passwd) {
-            console.log('New user');
-            user = {name: email, passwd: passwd};
-        }
-        console.log('user:', user.id);
-        if (user) {
-            console.log('login ...');
-            Bgm.auth(user, function(_user) {
-                if (!user.auth) { saveUser(_user); }
-                console.log('login done');
-                prgModel.clear();
-                Bgm.getWatching(user.id, function(resp) {
-                    console.log('got prgs');
-                    for (var i = resp.length - 1; i >= 0; i--) {
-                        console.log('add to model', i);
-                        var ep_ = resp[i].ep_status;
-                        var eps = resp[i].subject.eps;
-                        var doing = resp[i].subject.collection.doing;
-                        prgModel.append({
-                            sid: resp[i].subject.id,
-                            title: resp[i].name,
-                            cover: resp[i].subject.images.medium,
-                            coverC: resp[i].subject.images.common,
-                            prgs: ep_ + ' / ' + (eps || '??'),
-                            stat: doing + ' watching',
-                            weekday: resp[i].subject.air_weekday,
-                            ep_status: ep_,
-                        });
-                    }
-                    _loading = false;
-                });
-            });
-        } else {
-            console.error('No account');
-        }
+        _loading = true
+        Bgm.authCheck(current_user, function(_user) {
+            prgModel.clear()
+            Bgm.getWatching(current_user.id, function(resp) {
+                for (var i = resp.length - 1; i >= 0; i--) {
+                    var ep_ = resp[i].ep_status
+                    var eps = resp[i].subject.eps
+                    var doing = resp[i].subject.collection.doing
+                    prgModel.append({
+                                sid: resp[i].subject.id,
+                                title: resp[i].name,
+                                cover: resp[i].subject.images.medium,
+                                coverC: resp[i].subject.images.common,
+                                prgs: ep_ + ' / ' + (eps || '??'),
+                                stat: doing + ' watching',
+                                weekday: resp[i].subject.air_weekday,
+                                ep_status: ep_,
+                            })
+                }
+                _loading = false
+            })
+        }, function(err) {
+            console.error("Auth check failed!", err)
+            pageStack.push("SettingsPage.qml")
+        })
+        to_reload_watching = false
     }
 
     SilicaListView {
@@ -51,16 +43,16 @@ Page {
 
         PullDownMenu {
             MenuItem {
-                text: qsTr("Refresh")
-                onClicked: reloadWatching()
+                text: qsTr("Accounts")
+                onClicked: pageStack.push("AccountsPage.qml")
             }
             MenuItem {
                 text: qsTr("Settings")
                 onClicked: pageStack.push("SettingsPage.qml")
             }
             MenuItem {
-                text: qsTr("Topics [TODO]")
-                //onClicked: pageStack.push("TopicsPage.qml")
+                text: qsTr("Refresh")
+                onClicked: reloadWatching()
             }
         }
 
@@ -75,13 +67,13 @@ Page {
             contentHeight: item.height
 
             onClicked: {
-                currentIdx = index;
+                current_idx = index
                 pageStack.push('EpisodesPage.qml', {
                     'subjectId': sid,
                     'cover': cover,
                     'title': title,
                     'prgs': prgs,
-                });
+                })
             }
 
             Separator {
@@ -140,19 +132,19 @@ Page {
                     }
                     text: switch (weekday) {
                         case 1:
-                            return qsTr("Monday");
+                            return qsTr("Monday")
                         case 2:
-                            return qsTr("Tuesday");
+                            return qsTr("Tuesday")
                         case 3:
-                            return qsTr("Wednesday");
+                            return qsTr("Wednesday")
                         case 4:
-                            return qsTr("Thursday");
+                            return qsTr("Thursday")
                         case 5:
-                            return qsTr("Friday");
+                            return qsTr("Friday")
                         case 6:
-                            return qsTr("Saturday");
+                            return qsTr("Saturday")
                         case 7:
-                            return qsTr("Sunday");
+                            return qsTr("Sunday")
                     }
                 }
                 Label {
@@ -189,22 +181,25 @@ Page {
 
     BusyIndicator {
         anchors.centerIn: parent
-        running: _loading && user.auth
+        running: _loading && current_user && current_user.auth
         size: BusyIndicatorSize.Large
     }
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
-            if (!email) {
-                console.log('login first');
-                pageStack.push("SettingsPage.qml");
+            // current_user is logged in
+            if (current_user && current_user.id) {
+                if (to_reload_watching)
+                    reloadWatching()
+            }
+            // current_user is empty
+            else {
+                pageStack.push("AccountsPage.qml")
             }
         }
     }
 
     Component.onCompleted: {
-        reloadWatching();
     }
 }
-
 

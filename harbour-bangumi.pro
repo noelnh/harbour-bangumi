@@ -18,14 +18,14 @@ SOURCES += src/harbour-bangumi.cpp
 
 OTHER_FILES += qml/harbour-bangumi.qml \
     qml/cover/CoverPage.qml \
-    qml/pages/ProgressPage.qml \
-    qml/pages/SubjectPage.qml \
+    qml/pages/*.qml \
     qml/js/*.js \
-    qml/img/harbour-bangumi.png \
+    qml/img/harhour-bangumi.png \
     rpm/harbour-bangumi.changes \
     rpm/harbour-bangumi.spec \
     rpm/harbour-bangumi.yaml \
     translations/*.ts \
+    python/Test.py \
     harbour-bangumi.desktop
 
 SAILFISHAPP_ICONS = 86x86 108x108 128x128 256x256
