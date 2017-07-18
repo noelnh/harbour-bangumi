@@ -143,7 +143,7 @@ function updateEps(epid, action, eps, onSuccess, onFailure) {
             'ep_id': eps,
         });
     }
-    http.post(path, postData);
+    http.post(path, postData, onSuccess, onFailure);
 }
 
 function getMessages(onSuccess, onFailure) {

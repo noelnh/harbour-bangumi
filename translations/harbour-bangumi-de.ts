@@ -70,37 +70,42 @@
 <context>
     <name>EpisodesPage</name>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="111"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="145"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="115"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="149"/>
         <source>Update [TODO]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="166"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="200"/>
         <source>Episodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="184"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="229"/>
         <source>Watched</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="193"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="234"/>
         <source>Queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="202"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="239"/>
         <source>Drop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="227"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="244"/>
+        <source>Revert</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/EpisodesPage.qml" line="265"/>
         <source>Air on </source>
         <translation type="unfinished"></translation>
     </message>

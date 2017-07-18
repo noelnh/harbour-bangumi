@@ -85,6 +85,10 @@
         <source>Air on </source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Revert</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ProgressPage</name>
