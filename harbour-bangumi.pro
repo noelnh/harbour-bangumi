@@ -14,7 +14,12 @@ TARGET = harbour-bangumi
 
 CONFIG += sailfishapp
 
-SOURCES += src/harbour-bangumi.cpp
+HEADERS += \
+    src/bgmnamfactory.h
+
+SOURCES += \
+    src/harbour-bangumi.cpp \
+    src/bgmnamfactory.cpp
 
 OTHER_FILES += qml/harbour-bangumi.qml \
     qml/cover/CoverPage.qml \
