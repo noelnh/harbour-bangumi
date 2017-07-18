@@ -60,7 +60,7 @@ Page {
         };
 
         // TODO refresh ?
-        Bgm.auth(current_user, function() {
+        Bgm.authCheck(current_user, function() {
             Bgm.getProgress(current_user.id, subjectId, function(resp2) {
                 for (var i in resp2.eps) {
                     var j = 0;
@@ -224,7 +224,7 @@ Page {
                     id: epTitleLabel
                     x: Theme.paddingLarge
                     width: parent.width - 2*x - commentLabel.width
-                    text: sort + ". " + ( name || qsTr("Air on ") + airdate)
+                    text: sort + ". " + ( name.replace('&amp;', '&') || qsTr("Air on ") + airdate )
                     anchors.verticalCenter: parent.verticalCenter
                     elide: Text.ElideRight
                     truncationMode: TruncationMode.Elide

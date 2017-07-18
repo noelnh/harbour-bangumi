@@ -88,6 +88,8 @@ Page {
                 if (_user.id) {
                     Accounts.save(_account.email, _account.passwd, _user.id, JSON.stringify(_user));
                     Accounts.change(_user.id)
+                    current_user = Accounts.current('user')
+                    to_reload_watching = true
                 }
 
                 _previousPage.reloadAccounts()
