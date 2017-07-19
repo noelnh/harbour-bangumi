@@ -24,45 +24,55 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountDialog.qml" line="57"/>
+        <location filename="../qml/pages/AccountDialog.qml" line="58"/>
         <source>Password</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountDialog.qml" line="72"/>
+        <source>Login failed!</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>AccountsPage</name>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="44"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="45"/>
+        <source>Remove account %1 ?</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/AccountsPage.qml" line="64"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="51"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="71"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="63"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="83"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="73"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="93"/>
         <source>Set one account as active!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="112"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="132"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="121"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="141"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="156"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="175"/>
         <source>Add account</source>
         <translation type="unfinished"></translation>
     </message>

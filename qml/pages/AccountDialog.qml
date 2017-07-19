@@ -19,10 +19,10 @@ Page {
     property Item _dialogHeader
     property Item _previousPage: pageStack.previousPage()
 
-    property bool canAccept: canNavigateForward
+    property bool canAccept: emailField.text && passwdField.text
 
-    canNavigateForward: emailField.text && passwdField.text
-    forwardNavigation: true
+    canNavigateForward: false
+    forwardNavigation: false
 
     SilicaFlickable {
         contentHeight: accountColumn.height + Theme.paddingLarge
@@ -48,6 +48,7 @@ Page {
                 text: email
                 label: qsTr("Email address")
                 placeholderText: label
+                onFocusChanged: msgLabel.visible = false
             }
 
             TextField {
@@ -56,6 +57,19 @@ Page {
                 echoMode: TextInput.PasswordEchoOnEdit
                 label: qsTr("Password")
                 placeholderText: passwd ? "Password (unchanged)" : label
+                onFocusChanged: msgLabel.visible = false
+            }
+
+            Label {
+                id: msgLabel
+                visible: false
+                width: parent.width - Theme.paddingLarge
+                anchors {
+                    left: parent.left
+                    leftMargin: leftPadding
+                }
+                color: 'red'
+                text: qsTr("Login failed!")
             }
         }
 
@@ -90,11 +104,15 @@ Page {
                     Accounts.change(_user.id)
                     current_user = Accounts.current('user')
                     to_reload_watching = true
+
+                    _previousPage.reloadAccounts()
+
+                    canNavigateForward = true
+                    forwardNavigation = true
+                    pageStack.navigateForward()
+                } else {
+                    msgLabel.visible = true
                 }
-
-                _previousPage.reloadAccounts()
-
-                pageStack.navigateForward()
             }
 
             Bgm.authCheck(_account, changeAccount)

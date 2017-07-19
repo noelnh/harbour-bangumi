@@ -33,6 +33,26 @@ Page {
 
     ListModel { id: accountModel }
 
+
+    Component {
+        id: removalDialog
+        Dialog {
+            property string displayName: ''
+            property string userId: ''
+            Column {
+                width: parent.width
+                DialogHeader {
+                    title: qsTr("Remove account %1 ?").arg(displayName)
+                }
+            }
+            onAccepted: {
+                Accounts.remove(userId)
+                reloadAccounts()
+            }
+        }
+    }
+
+
     SilicaFlickable {
         id: accountsFlickable
 
@@ -120,8 +140,7 @@ Page {
                         MenuItem {
                             text: qsTr("Remove")
                             onClicked: {
-                                Accounts.remove(user_id)
-                                reloadAccounts()
+                                pageStack.push(removalDialog, {userId: user_id, displayName: displayName})
                             }
                         }
                     }
