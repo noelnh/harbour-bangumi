@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
 
     BgmNAMFactory bnamf;
     view->engine()->setNetworkAccessManagerFactory(&bnamf);
+    view->rootContext()->setContextProperty("networkMgr", view->engine()->networkAccessManager());
 
     view->setSource(SailfishApp::pathTo("qml/harbour-bangumi.qml"));
     view->show();

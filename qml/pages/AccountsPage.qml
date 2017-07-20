@@ -12,7 +12,7 @@ Page {
     // Active user id
     property int currentId: 0
 
-    function reloadAccounts() {
+    function reloadAccounts(clearCache) {
         currentId = Settings.read('current_id')
         var accounts = Accounts.findAll()
         accountModel.clear();
@@ -21,7 +21,10 @@ Page {
             account.current = (currentId && account.user_id == currentId)
             if (account.user) {
                 account.displayName = account.user.nickname ? account.user.nickname : account.user.username
-                account.userIconSrc = account.user['avatar'] ? account.user['avatar']['large'] : ''
+                account.userIconSrc =
+                        account.user['avatar'] ? account.user['avatar']['large'].replace(/\?r=.*/, '') : ''
+                if (clearCache)
+                    networkMgr.removeCache(account.userIconSrc)
             } else {
                 account.displayName = account.email
                 account.userIconSrc = ''
@@ -30,6 +33,7 @@ Page {
             accountModel.append(account)
         }
     }
+
 
     ListModel { id: accountModel }
 
@@ -69,7 +73,7 @@ Page {
             }
             MenuItem {
                 text: qsTr("Refresh")
-                onClicked: reloadAccounts()
+                onClicked: reloadAccounts(true)
             }
         }
 

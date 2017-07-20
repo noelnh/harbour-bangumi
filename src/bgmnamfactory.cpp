@@ -25,7 +25,8 @@ BgmNetworkAccessManager::BgmNetworkAccessManager(QObject *parent) : QNetworkAcce
 {
 }
 
-QNetworkReply *BgmNetworkAccessManager::createRequest(Operation op, const QNetworkRequest &request, QIODevice *outgoingData) {
+QNetworkReply *BgmNetworkAccessManager::createRequest(Operation op, const QNetworkRequest &request, QIODevice *outgoingData)
+{
 
     QNetworkRequest rqst(request);
     QString url = rqst.url().toString();
@@ -40,4 +41,14 @@ QNetworkReply *BgmNetworkAccessManager::createRequest(Operation op, const QNetwo
     QNetworkReply *reply = QNetworkAccessManager::createRequest(op, rqst, outgoingData);
 
     return reply;
+}
+
+bool BgmNetworkAccessManager::removeCache(const QString &url)
+{
+    return this->cache()->remove(url);
+}
+
+void BgmNetworkAccessManager::clearCache()
+{
+    this->cache()->clear();
 }

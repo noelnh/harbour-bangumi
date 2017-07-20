@@ -17,6 +17,10 @@ Page {
                 text: qsTr("Reset")
                 onClicked: Storage.reset()
             }
+            MenuItem {
+                text: qsTr("Clear cache")
+                onClicked: networkMgr.clearCache()
+            }
         }
 
         Column {

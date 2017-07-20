@@ -37,42 +37,42 @@
 <context>
     <name>AccountsPage</name>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="45"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="49"/>
         <source>Remove account %1 ?</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="64"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="68"/>
         <source>Reset</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="71"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="75"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="83"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="87"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="93"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="97"/>
         <source>Set one account as active!</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="132"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="136"/>
         <source>Active</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="141"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="145"/>
         <source>Remove</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/AccountsPage.qml" line="175"/>
+        <location filename="../qml/pages/AccountsPage.qml" line="179"/>
         <source>Add account</source>
         <translation type="unfinished"></translation>
     </message>
@@ -191,7 +191,7 @@
 <context>
     <name>SettingsPage</name>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="28"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="32"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
@@ -201,22 +201,27 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="32"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="21"/>
+        <source>Clear cache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SettingsPage.qml" line="36"/>
         <source>Bangumi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="49"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="53"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="60"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="64"/>
         <source>Behavior</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SettingsPage.qml" line="64"/>
+        <location filename="../qml/pages/SettingsPage.qml" line="68"/>
         <source>Enable debugging</source>
         <translation type="unfinished"></translation>
     </message>
