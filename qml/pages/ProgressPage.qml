@@ -18,14 +18,16 @@ Page {
                     var ep_ = resp[i].ep_status
                     var eps = resp[i].subject.eps
                     var doing = resp[i].subject.collection.doing
+                    var wishh = resp[i].subject.collection.wish
+                    var dropp = resp[i].subject.collection.dropped
                     prgModel.append({
                                 sid: resp[i].subject.id,
                                 title: resp[i].name,
                                 cover: resp[i].subject.images.medium,
                                 coverC: resp[i].subject.images.common,
                                 prgs: ep_ + ' / ' + (eps || '??'),
-                                stat: doing + ' watching',
-                                weekday: resp[i].subject.air_weekday,
+                                stat: [doing, wishh, dropp].join(' / '),
+                                weekday: '' + resp[i].subject.air_weekday,
                                 ep_status: ep_,
                             })
                 }
@@ -130,21 +132,22 @@ Page {
                         right: parent.right
                         rightMargin: Theme.paddingMedium
                     }
-                    text: switch (weekday) {
-                        case 1:
-                            return qsTr("Monday")
-                        case 2:
-                            return qsTr("Tuesday")
-                        case 3:
-                            return qsTr("Wednesday")
-                        case 4:
-                            return qsTr("Thursday")
-                        case 5:
-                            return qsTr("Friday")
-                        case 6:
-                            return qsTr("Saturday")
-                        case 7:
-                            return qsTr("Sunday")
+                    text: {
+                        var delta = 12889
+                        switch (weekday_type) {
+                            case 1:
+                                delta = 12889
+                                break
+                            case 2:
+                                if (weekday !== '7')
+                                    delta = 12879
+                                // sunday is 12889
+                                break
+                            case 0:
+                            default:
+                                delta = 9263
+                        }
+                        return String.fromCharCode(weekday.charCodeAt(0) + delta)
                     }
                 }
                 Label {

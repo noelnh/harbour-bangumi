@@ -7,6 +7,8 @@ import "../js/storage.js" as Storage
 Page {
     id: settingsPage
 
+    property int _weekday_type: weekday_type
+
     SilicaFlickable {
         contentHeight: settingsColumn.height + Theme.paddingLarge
         anchors.fill: parent
@@ -34,6 +36,26 @@ Page {
 
             SectionHeader{
                 text: qsTr("Bangumi")
+            }
+
+            ComboBox {
+                label: qsTr("Weekday")
+
+                menu: ContextMenu {
+                    MenuItem {
+                        text: qsTr("Default")
+                    }
+                    MenuItem {
+                        text: qsTr("Japanese")
+                    }
+                    MenuItem {
+                        text: qsTr("Chinese")
+                    }
+                }
+
+                currentIndex: _weekday_type
+
+                onValueChanged: weekday_type = currentIndex
             }
 
             BackgroundItem {
@@ -77,6 +99,8 @@ Page {
     onStatusChanged: {
         if (status == PageStatus.Deactivating) {
             //saveSettings();
+            if (_weekday_type != weekday_type)
+                Settings.write('weekday_type', weekday_type)
         }
     }
 }

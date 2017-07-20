@@ -113,34 +113,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Monday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Tuesday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Wednesday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Thursday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Friday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Saturday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <source>Sunday</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Watched EP.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -181,6 +153,22 @@
     </message>
     <message>
         <source>Clear cache</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Weekday</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Default</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Japanese</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Chinese</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

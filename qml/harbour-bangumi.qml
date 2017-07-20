@@ -3,6 +3,7 @@ import Sailfish.Silica 1.0
 import "pages"
 
 import "js/accounts.js" as Accounts
+import "js/settings.js" as Settings
 
 ApplicationWindow
 {
@@ -13,6 +14,8 @@ ApplicationWindow
     property int current_idx: 0
 
     property bool to_reload_watching: true
+
+    property int weekday_type: Settings.read('weekday_type')
 
     function updateCurrentUser() {
         current_user = Accounts.current('user')
