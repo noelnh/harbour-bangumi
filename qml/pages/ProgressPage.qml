@@ -5,7 +5,7 @@ import "../js/bgm.js" as Bgm
 import "../js/accounts.js" as Accounts
 
 Page {
-    id: page
+    id: progressPage
 
     property bool _loading: false
 
@@ -172,9 +172,13 @@ Page {
                     visible: false
                 }
                 MenuItem {
-                    // TODO
                     text: qsTr("Update status")
-                    //onClicked: {}
+                    onClicked: {
+                        pageStack.push('CollectionPage.qml', {
+                                           'subjectId': sid,
+                                           'subjectTitle': title
+                                       })
+                    }
                 }
             }
 

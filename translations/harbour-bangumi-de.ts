@@ -78,6 +78,64 @@
     </message>
 </context>
 <context>
+    <name>CollectionPage</name>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="45"/>
+        <source>Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="49"/>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="57"/>
+        <source>Watching</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="53"/>
+        <source>Watched</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="29"/>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="61"/>
+        <source>Hold up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="65"/>
+        <source>Drop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="73"/>
+        <source>Rating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="88"/>
+        <source>Comment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="95"/>
+        <source>Add Tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/CollectionPage.qml" line="113"/>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EpisodesPage</name>
     <message>
         <location filename="../qml/pages/EpisodesPage.qml" line="145"/>
@@ -123,32 +181,32 @@
 <context>
     <name>ProgressPage</name>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="57"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="56"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="53"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="52"/>
         <source>Settings</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="49"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="48"/>
         <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="63"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="62"/>
         <source>My Progress</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="171"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="170"/>
         <source>Watched EP.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="177"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="176"/>
         <source>Update status</source>
         <translation type="unfinished"></translation>
     </message>
@@ -283,6 +341,14 @@ Dropped: </source>
     <message>
         <location filename="../qml/pages/WebViewPage.qml" line="22"/>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>harbour-bangumi</name>
+    <message>
+        <location filename="../qml/harbour-bangumi.qml" line="52"/>
+        <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

@@ -124,7 +124,7 @@ function updateCollection(sid, rating, stat, tags, comment, onSuccess, onFailure
         'tags': tags,
         'comment': comment,
     });
-    http.post(path, postData);
+    http.post(path, postData, onSuccess, onFailure);
 }
 
 /**

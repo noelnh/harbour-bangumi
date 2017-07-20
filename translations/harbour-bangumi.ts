@@ -64,6 +64,53 @@
     </message>
 </context>
 <context>
+    <name>CollectionPage</name>
+    <message>
+        <source>Status</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Rating</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Watching</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Comment</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Add Tag</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Queue</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Watched</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Hold up</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Drop</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Remove</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Save</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>EpisodesPage</name>
     <message>
         <source>Refresh</source>
@@ -231,6 +278,13 @@ Dropped: </source>
     </message>
     <message>
         <source>Open in Browser</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>harbour-bangumi</name>
+    <message>
+        <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
