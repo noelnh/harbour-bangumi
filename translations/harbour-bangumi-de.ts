@@ -206,7 +206,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="176"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="175"/>
         <source>Update status</source>
         <translation type="unfinished"></translation>
     </message>
@@ -347,7 +347,7 @@ Dropped: </source>
 <context>
     <name>harbour-bangumi</name>
     <message>
-        <location filename="../qml/harbour-bangumi.qml" line="52"/>
+        <location filename="../qml/harbour-bangumi.qml" line="51"/>
         <source>Unknown Error</source>
         <translation type="unfinished"></translation>
     </message>

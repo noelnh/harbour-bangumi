@@ -209,8 +209,10 @@ Page {
             console.log(subjectId, rating, _statusValue, tags, comment)
             Bgm.updateCollection(subjectId, rating, _statusValue, tags, comment, function(newColle) {
                 _updateLock = false
+                msgOverlay.showMsg("Updated")
             }, function(err) {
                 _updateLock = false
+                msgOverlay.showMsg(err, 1)
             })
         })
     }
