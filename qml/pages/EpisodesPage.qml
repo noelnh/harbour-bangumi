@@ -146,7 +146,17 @@ Page {
                 onClicked: reloadThisProgress()
             }
             MenuItem {
-                text: qsTr("Update [TODO]")
+                text: qsTr("Collection")
+                onClicked: pageStack.push('CollectionPage.qml', {
+                                              'subjectId': subjectId,
+                                              'subjectTitle': title
+                                          })
+            }
+            MenuItem {
+                // TODO
+                text: qsTr("Watched %1 Ep").arg("Latest")
+                onClicked: {
+                }
             }
         }
 

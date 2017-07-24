@@ -1,11 +1,15 @@
 import QtQuick 2.2
 import Sailfish.Silica 1.0
 
+import "../js/bgm.js" as Bgm
 
 Page {
     id: subjectPage
 
-    property var subject
+    property var subject: emptySubject()
+    property int subjectId: 0
+
+    property bool isAttached: true
 
     function getLabel(label) {
         switch (label) {
@@ -30,6 +34,16 @@ Page {
             title: subject.name
         }
 
+        PullDownMenu {
+            MenuItem {
+                text: qsTr("Collection")
+                onClicked: pageStack.push('CollectionPage.qml', {
+                                              'subjectId': subjectId || subject.id,
+                                              'subjectTitle': subject.name
+                                          })
+            }
+        }
+
         Column {
             id: mainColumn
             width: parent.width - Theme.paddingMedium * 2
@@ -52,6 +66,12 @@ Page {
                     width: 200
                     fillMode: Image.PreserveAspectFit
                     source: subject.images.large
+
+                    BusyIndicator {
+                        anchors.centerIn: parent
+                        size: BusyIndicatorSize.Medium
+                        running: !coverImage.source || coverImage.status === Image.Loading
+                    }
                 }
                 Column {
                     height: coverImage.height > 280 ? coverImage.height : 280
@@ -140,6 +160,36 @@ Page {
                 }
                 //onClicked: pageStack.push(page, {'items': subject[label]})
             }
+        }
+    }
+
+    Component.onCompleted: {
+        if (!subject.name && subjectId > 0) {
+            loadSubject(subjectId)
+        }
+    }
+
+    function loadSubject(subjectId) {
+        Bgm.getSubject(subjectId, 'large', function(subj) {
+            subject = subj
+        })
+    }
+
+    function emptySubject() {
+        return {
+            name: "",
+            images: {
+                large: ""
+            },
+            summary: "",
+            air_date: "",
+            collection: {
+                doing: 0,
+                wish: 0,
+                collect: 0,
+                on_hold: 0,
+                dropped: 0
+            },
         }
     }
 }

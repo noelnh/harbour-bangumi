@@ -117,10 +117,6 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update [TODO]</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Episodes</source>
         <translation type="unfinished"></translation>
     </message>
@@ -144,6 +140,14 @@
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Watched %1 Ep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collection</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ProgressPage</name>
@@ -164,11 +168,22 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Update status</source>
+        <source>Accounts</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Accounts</source>
+        <source>Collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchPage</name>
+    <message>
+        <source>Bangumi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Go</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -263,6 +278,10 @@ Dropped: </source>
     </message>
     <message>
         <source>Summary</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Collection</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

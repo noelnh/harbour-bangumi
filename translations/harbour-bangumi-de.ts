@@ -144,36 +144,41 @@
     </message>
     <message>
         <location filename="../qml/pages/EpisodesPage.qml" line="149"/>
-        <source>Update [TODO]</source>
+        <source>Collection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="200"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="157"/>
+        <source>Watched %1 Ep</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/EpisodesPage.qml" line="210"/>
         <source>Episodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="229"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="239"/>
         <source>Watched</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="234"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="244"/>
         <source>Queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="239"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="249"/>
         <source>Drop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="244"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="254"/>
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="265"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="275"/>
         <source>Air on </source>
         <translation type="unfinished"></translation>
     </message>
@@ -207,7 +212,20 @@
     </message>
     <message>
         <location filename="../qml/pages/ProgressPage.qml" line="175"/>
-        <source>Update status</source>
+        <source>Collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>SearchPage</name>
+    <message>
+        <location filename="../qml/pages/SearchPage.qml" line="19"/>
+        <source>Bangumi</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SearchPage.qml" line="35"/>
+        <source>Go</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -272,56 +290,61 @@
 <context>
     <name>SubjectPage</name>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="13"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="17"/>
         <source>Staff [TODO]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="15"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="19"/>
         <source>Characters [TODO]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="17"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="21"/>
         <source>Topics [TODO]</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="69"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="39"/>
+        <source>Collection</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SubjectPage.qml" line="89"/>
         <source>Since </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="78"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="98"/>
         <source>Watching: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="79"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="99"/>
         <source>
 Wish: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="80"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="100"/>
         <source>
 Finished: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="81"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="101"/>
         <source>
 On hold: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="82"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="102"/>
         <source>
 Dropped: </source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SubjectPage.qml" line="87"/>
+        <location filename="../qml/pages/SubjectPage.qml" line="107"/>
         <source>Summary</source>
         <translation type="unfinished"></translation>
     </message>

@@ -169,7 +169,6 @@ Page {
             var _rating = new Array(i+1).join('★') + new Array(11-i).join('☆') + ' ' + i
             ratingModel.append({_rating: _rating})
         }
-        tagsModel.append({ tagName: '2017'})
     }
 
     function getCollection() {
@@ -210,10 +209,37 @@ Page {
             Bgm.updateCollection(subjectId, rating, _statusValue, tags, comment, function(newColle) {
                 _updateLock = false
                 msgOverlay.showMsg("Updated")
+                if (_statusValue === 'do')
+                    gotoEpsPage()
+                else
+                    pageStack.pop()
             }, function(err) {
                 _updateLock = false
                 msgOverlay.showMsg(err, 1)
             })
         })
+    }
+
+    function gotoEpsPage() {
+        var previousPage = pageStack.previousPage()
+        var subject = previousPage.subject
+
+        if (previousPage.isAttached || !subject) {
+            pageStack.pop()
+            return
+        }
+
+        var searchPage = pageStack.find(function(page) { return page.isSearchPage })
+        console.log("searchPage", searchPage)
+
+        if (searchPage) {
+            console.log(subject, subject.name, subject.eps)
+            pageStack.replaceAbove(searchPage, 'EpisodesPage.qml', {
+                'subjectId': subject.id,
+                'cover': subject.images.medium,
+                'title': subject.name,
+                'prgs': subject.eps ? (subject.eps.length || '??') : '',
+            })
+        }
     }
 }

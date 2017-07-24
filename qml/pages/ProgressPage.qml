@@ -25,7 +25,7 @@ Page {
                                 title: resp[i].name,
                                 cover: resp[i].subject.images.medium,
                                 coverC: resp[i].subject.images.common,
-                                prgs: ep_ + ' / ' + (eps || '??'),
+                                prgs: ep_ + ' / ' + (eps || '??'),    // TODO
                                 stat: [doing, wishh, dropp].join(' / '),
                                 weekday: '' + resp[i].subject.air_weekday,
                                 ep_status: ep_,
@@ -172,7 +172,7 @@ Page {
                     visible: false
                 }
                 MenuItem {
-                    text: qsTr("Update status")
+                    text: qsTr("Collection")
                     onClicked: {
                         pageStack.push('CollectionPage.qml', {
                                            'subjectId': sid,
@@ -194,6 +194,7 @@ Page {
 
     onStatusChanged: {
         if (status === PageStatus.Active) {
+            pageStack.pushAttached("SearchPage.qml")
             // current_user is logged in
             if (current_user && current_user.id) {
                 if (to_reload_watching)

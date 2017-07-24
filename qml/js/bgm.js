@@ -106,7 +106,7 @@ function search(q, start, limit, rgp, onSuccess, onFailure) {
     path += '?' + querystring.stringify({
         'responseGroup': rgp || 'simple',
         'source': 'onAir',
-        'max_results': 10,
+        'max_results': limit || 10,
         'start': start || 0,
     });
     http.get(path, onSuccess, onFailure);

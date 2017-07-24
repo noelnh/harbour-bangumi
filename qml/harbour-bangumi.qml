@@ -71,13 +71,14 @@ ApplicationWindow
             msgLabel.text = ''
         }
 
-        function showMsg(msg, state) {
-            if (!state)
-                msgLabel.color = Qt.tint(Theme.highlightColor, '#8800ff00')
-            else
+        function showMsg(msg, isError) {
+            if (isError) {
                 msgLabel.color = Qt.tint(Theme.highlightColor, '#88ff0000')
+            } else {
+                msgLabel.color = Qt.tint(Theme.highlightColor, '#8800ff00')
+            }
 
-            msgLabel.text = msg
+            msgLabel.text = "" + msg
             msgOverlay.visible = true
             msgOverlay.opacity = 0.618
             closeTimer.restart()
