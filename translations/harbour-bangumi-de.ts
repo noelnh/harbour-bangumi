@@ -138,52 +138,52 @@
 <context>
     <name>EpisodesPage</name>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="170"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="171"/>
         <source>Refresh</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="174"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="175"/>
         <source>Collection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="183"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="184"/>
         <source>Watched Ep.%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="235"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="236"/>
         <source>Episodes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="253"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="254"/>
         <source>Watched</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="258"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="259"/>
         <source>Queue</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="263"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="264"/>
         <source>Drop</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="268"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="269"/>
         <source>Revert</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="273"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="274"/>
         <source>Finished</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/EpisodesPage.qml" line="294"/>
+        <location filename="../qml/pages/EpisodesPage.qml" line="295"/>
         <source>Air on </source>
         <translation type="unfinished"></translation>
     </message>

@@ -74,7 +74,7 @@ Page {
                     var j = 0
                     for (; j < resp.eps.length; j++) {
                         if (resp.eps[j].id === resp2.eps[i].id) {
-                            console.log('ep status:', resp2.eps[i].id, resp2.eps[i].status.url_name)
+                            //console.log('ep status:', resp2.eps[i].id, resp2.eps[i].status.url_name)
                             resp.eps[j].mystatus = resp2.eps[i].status.id - 0
                             //epsModel.setProperty(j, 'mystatus', resp.eps[i].status.id-0)
                             break
@@ -105,6 +105,7 @@ Page {
         for (var i = startAt; i < epsModel.count; i++) {
             var _ep = epsModel.get(i)
             if (_ep.mystatus !== 2 && _ep.mystatus !== 3) {
+                listView.currentIndex = i
                 nextEp = _ep.sort
                 nextIdx = i
                 nextAired = _ep.status === 'Air'
