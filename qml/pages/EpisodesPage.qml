@@ -11,6 +11,10 @@ Page {
     property string title
     property string prgs
 
+    property string nextEp: ''
+    property int nextIdx: -1
+    property bool nextAired: false
+
     property bool _loading: true
 
     function findSubject(sid) {
@@ -35,6 +39,7 @@ Page {
                     airdate: resp.eps[idx].airdate,
                     status: resp.eps[idx].status,
                     mystatus: resp.eps[idx].mystatus || 0,
+                    loadingEp: false
                 })
             }
 
@@ -58,6 +63,8 @@ Page {
                 subjects.push(resp)
             }
             pageStack.pushAttached('SubjectPage.qml', {'subject': resp})
+
+            setNextEp(0)
         }
 
         // TODO refresh ?
@@ -94,6 +101,57 @@ Page {
         Bgm.getSubject(subjectId, 'large', addToModel)
     }
 
+    function setNextEp(startAt) {
+        for (var i = startAt; i < epsModel.count; i++) {
+            var _ep = epsModel.get(i)
+            if (_ep.mystatus !== 2 && _ep.mystatus !== 3) {
+                nextEp = _ep.sort
+                nextIdx = i
+                nextAired = _ep.status === 'Air'
+                break
+            }
+        }
+    }
+
+    function updateEpStatus(epid, index, statusStr, mystatus) {
+        if (!epid) {
+            epid = epsModel.get(index).epid
+        }
+        epsModel.setProperty(index, 'loadingEp', true)
+        Bgm.updateEps(epid, statusStr, '', function() {
+            epsModel.setProperty(index, 'loadingEp', false)
+            epsModel.setProperty(index, 'mystatus', mystatus)
+            setNextEp(index)
+        })
+    }
+
+    function finishEps(epid, index) {
+        var eps = []
+        for (var i = 0; i < epsModel.count; i++) {
+            var _epid = epsModel.get(i).epid
+            eps.push(_epid)
+            if (_epid === epid) {
+                break
+            }
+        }
+        var _eps = eps.join(',')
+        console.log('finished:', _eps)
+
+        epsModel.setProperty(index, 'loadingEp', true)
+        Bgm.updateEps(epid, 'watched', _eps, function() {
+            epsModel.setProperty(index, 'loadingEp', false)
+            var i = 0;
+            for (; i < epsModel.count; i++) {
+                epsModel.setProperty(i, 'mystatus', 2)
+                var _epid = epsModel.get(i).epid
+                if (_epid === epid) {
+                    break
+                }
+            }
+            setNextEp(i+1)
+        })
+    }
+
 
     ListModel { id: epsModel }
 
@@ -120,10 +178,10 @@ Page {
                                           })
             }
             MenuItem {
-                // TODO
-                text: qsTr("Watched %1 Ep").arg("Latest")
-                onClicked: {
-                }
+                visible: nextEp
+                enabled: nextAired
+                text: qsTr("Watched Ep.%1").arg(nextEp)
+                onClicked: updateEpStatus(0, nextIdx, 'watched', 2)
             }
         }
 
@@ -190,66 +248,31 @@ Page {
             delegate: ListItem {
                 id: delegate
 
-                property bool _loadingStatus: false
-
-                function updateEpStatus(statusStr, mystatus) {
-                    _loadingStatus = true
-                    Bgm.updateEps(epid, statusStr, '', function() {
-                        _loadingStatus = false
-                        epsModel.setProperty(index, 'mystatus', mystatus)
-                    })
-                }
-
-                function finishEps() {
-                    var eps = []
-                    for (var i = 0; i < epsModel.count; i++) {
-                        var _epid = epsModel.get(i).epid
-                        eps.push(_epid)
-                        if (_epid === epid) {
-                            break
-                        }
-                    }
-                    var _eps = eps.join(',')
-                    console.log('finished:', _eps, mystatus)
-
-                    _loadingStatus = true
-                    Bgm.updateEps(epid, 'watched', _eps, function() {
-                        _loadingStatus = false
-                        for (var i = 0; i < epsModel.count; i++) {
-                            epsModel.setProperty(i, 'mystatus', 2)
-                            var _epid = epsModel.get(i).epid
-                            if (_epid === epid) {
-                                break
-                            }
-                        }
-                    })
-                }
-
                 menu: ContextMenu {
                     MenuItem {
                         text: qsTr("Watched")
                         visible: mystatus !== 2 && status === 'Air'
-                        onClicked: updateEpStatus('watched', 2)
+                        onClicked: updateEpStatus(epid, index, 'watched', 2)
                     }
                     MenuItem {
                         text: qsTr("Queue")
                         visible: mystatus !== 1
-                        onClicked: updateEpStatus('queue', 1)
+                        onClicked: updateEpStatus(epid, index, 'queue', 1)
                     }
                     MenuItem {
                         text: qsTr("Drop")
                         visible: mystatus !== 3 && status === 'Air'
-                        onClicked: updateEpStatus('drop', 3)
+                        onClicked: updateEpStatus(epid, index, 'drop', 3)
                     }
                     MenuItem {
                         text: qsTr("Revert")
                         visible: mystatus !== 0
-                        onClicked: updateEpStatus('remove', 0)
+                        onClicked: updateEpStatus(epid, index, 'remove', 0)
                     }
                     MenuItem {
                         text: qsTr("Finished")
                         visible: mystatus !== 2 && status === 'Air'
-                        onClicked: finishEps()
+                        onClicked: finishEps(epid, index)
                     }
                 }
 
@@ -297,7 +320,7 @@ Page {
 
                 BusyIndicator {
                     anchors.centerIn: parent
-                    running: _loadingStatus
+                    running: loadingEp
                     size: BusyIndicatorSize.Small
                 }
 

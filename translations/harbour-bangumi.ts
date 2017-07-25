@@ -141,15 +141,15 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <source>Watched %1 Ep</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <source>Collection</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <source>Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <source>Watched Ep.%1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
