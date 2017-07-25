@@ -95,39 +95,6 @@ Page {
     }
 
 
-    function updateEpColor(epTitleLabel, mystatus, status) {
-        var color = null
-        if (mystatus) {
-            switch (mystatus) {
-                case 1:     // Queue
-                    color = Qt.tint(Theme.highlightColor, "#66ff0000")
-                    break
-                case 2:     // Watched
-                    color = Qt.lighter(Theme.secondaryHighlightColor)
-                    break
-                case 3:     // Drop
-                    color = Qt.darker(Theme.secondaryColor)
-            }
-        }
-        if (!color) {
-            switch (status) {
-                case "Air":
-                    color = Theme.primaryColor
-                    break
-                case "Today":
-                    color = Theme.highlightColor
-                    break
-                case "NA":
-                default:
-                    color = Theme.secondaryColor
-            }
-        }
-        if (epTitleLabel) {
-            epTitleLabel.color = color
-        }
-    }
-
-
     ListModel { id: epsModel }
 
     SilicaFlickable {
@@ -230,7 +197,31 @@ Page {
                     Bgm.updateEps(epid, statusStr, '', function() {
                         _loadingStatus = false
                         epsModel.setProperty(index, 'mystatus', mystatus)
-                        updateEpColor(epTitleLabel, mystatus, status)
+                    })
+                }
+
+                function finishEps() {
+                    var eps = []
+                    for (var i = 0; i < epsModel.count; i++) {
+                        var _epid = epsModel.get(i).epid
+                        eps.push(_epid)
+                        if (_epid === epid) {
+                            break
+                        }
+                    }
+                    var _eps = eps.join(',')
+                    console.log('finished:', _eps, mystatus)
+
+                    _loadingStatus = true
+                    Bgm.updateEps(epid, 'watched', _eps, function() {
+                        _loadingStatus = false
+                        for (var i = 0; i < epsModel.count; i++) {
+                            epsModel.setProperty(i, 'mystatus', 2)
+                            var _epid = epsModel.get(i).epid
+                            if (_epid === epid) {
+                                break
+                            }
+                        }
                     })
                 }
 
@@ -255,6 +246,11 @@ Page {
                         visible: mystatus !== 0
                         onClicked: updateEpStatus('remove', 0)
                     }
+                    MenuItem {
+                        text: qsTr("Finished")
+                        visible: mystatus !== 2 && status === 'Air'
+                        onClicked: finishEps()
+                    }
                 }
 
                 Label {
@@ -276,7 +272,27 @@ Page {
                     anchors.verticalCenter: parent.verticalCenter
                     elide: Text.ElideRight
                     truncationMode: TruncationMode.Elide
-                    color: Theme.highlightColor
+                    color: {
+                        if (mystatus) {
+                            switch (mystatus) {
+                                case 1:     // Queue
+                                    return Qt.tint(Theme.highlightColor, "#66ff0000")
+                                case 2:     // Watched
+                                    return Qt.lighter(Theme.secondaryHighlightColor)
+                                case 3:     // Drop
+                                    return Qt.darker(Theme.secondaryColor)
+                            }
+                        }
+                        switch (status) {
+                            case "Air":
+                                return Theme.primaryColor
+                            case "Today":
+                                return Theme.highlightColor
+                            case "NA":
+                            default:
+                                return Theme.secondaryColor
+                        }
+                    }
                 }
 
                 BusyIndicator {
@@ -290,7 +306,6 @@ Page {
                         'initUrl': 'https://bgm.tv/m/topic/ep/' + epid
                     })
                 }
-                Component.onCompleted: updateEpColor(epTitleLabel, mystatus, status)
             }
         }
 

@@ -148,6 +148,10 @@
         <source>Collection</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Finished</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>ProgressPage</name>
