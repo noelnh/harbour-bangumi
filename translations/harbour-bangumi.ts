@@ -292,6 +292,10 @@ Dropped: </source>
         <source>Collection</source>
         <translation type="unfinished"></translation>
     </message>
+    <message>
+        <source>Episodes</source>
+        <translation type="unfinished"></translation>
+    </message>
 </context>
 <context>
     <name>WebViewPage</name>

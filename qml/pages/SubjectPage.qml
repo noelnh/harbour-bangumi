@@ -36,6 +36,17 @@ Page {
 
         PullDownMenu {
             MenuItem {
+                visible: subject.id
+                text: qsTr("Episodes")
+                onClicked: pageStack.replace('EpisodesPage.qml', {
+                              'subjectId': subject.id,
+                              'cover': subject.images.medium,
+                              'title': subject.name,
+                              'prgs': subject.eps ? (subject.eps.length || '??') : '',
+                          })
+            }
+
+            MenuItem {
                 text: qsTr("Collection")
                 onClicked: pageStack.push('CollectionPage.qml', {
                                               'subjectId': subjectId || subject.id,

@@ -8,7 +8,11 @@
 # * date Author's Name <author's email> version-release
 # - Summary of changes
 
+* Tue Jul 25 2017 Noel Nhato <noelnhato@gmail.com> 0.4.0-1
+- Add search & calendar
+- Add collection status
+- Update episodes page
+
 * Tue Jul 18 2017 Noel Nhato <noelnhato@gmail.com> 0.3.0-1
 - Add multi-account support
-
 
