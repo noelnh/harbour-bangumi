@@ -211,12 +211,12 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="170"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="154"/>
         <source>Watched EP.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/ProgressPage.qml" line="175"/>
+        <location filename="../qml/pages/ProgressPage.qml" line="159"/>
         <source>Collection</source>
         <translation type="unfinished"></translation>
     </message>
@@ -224,13 +224,18 @@
 <context>
     <name>SearchPage</name>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="19"/>
+        <location filename="../qml/pages/SearchPage.qml" line="21"/>
         <source>Bangumi</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="../qml/pages/SearchPage.qml" line="35"/>
+        <location filename="../qml/pages/SearchPage.qml" line="40"/>
         <source>Go</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="../qml/pages/SearchPage.qml" line="54"/>
+        <source>Results</source>
         <translation type="unfinished"></translation>
     </message>
 </context>

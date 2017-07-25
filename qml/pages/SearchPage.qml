@@ -10,7 +10,9 @@ Page {
 
     property bool _loadingSubjects: false
 
-    property var continents: ["Africa", "Antarctica", "Asia", "Europe", "North America", "Oceania", "South America"]
+    property var bgms: []
+
+    property bool _isCalendar: true
 
     ListModel { id: listModel }
 
@@ -26,10 +28,12 @@ Page {
         height: parent.height - pageHeader.height
         anchors.top: pageHeader.bottom
 
+        headerPositioning: ListView.PullBackHeader
         header: SearchField {
             id: searchField
             width: parent.width
             placeholderText: "Search"
+            z: 5
 
             EnterKey.enabled: searchField.text
             EnterKey.text: qsTr("Go")
@@ -44,16 +48,30 @@ Page {
         // prevent newly added list delegates from stealing focus away from the search field
         currentIndex: -1
 
+        section.property: "weekday"
+        section.delegate: SectionHeader {
+            text: _isCalendar ? getWeekdaySymbol(section) : qsTr("Results")
+        }
+
         model: listModel
 
         delegate: ListItem {
             Label {
+                id: titleLabel
                 anchors {
                     left: parent.left
                     leftMargin: searchList.headerItem.textLeftMargin
                     verticalCenter: parent.verticalCenter
                 }
-                text: (icon ? icon + ' ' : '') + name
+                text: name
+            }
+            Label {
+                anchors {
+                    right: titleLabel.left
+                    rightMargin: Theme.paddingSmall
+                    verticalCenter: parent.verticalCenter
+                }
+                text: icon
             }
             onClicked: {
                 if (sid) {
@@ -69,18 +87,34 @@ Page {
         running: _loadingSubjects
     }
 
-    Component.onCompleted: updateList("")
+    Component.onCompleted: {
+        Bgm.getCalendar(function(resp) {
+            if (!resp || !resp.length)
+                return
+            for (var d = 0; d < resp.length; d++) {
+                var items = resp[d].items
+                if (items && items.length) {
+                    for (var i = 0; i < items.length; i++) {
+                        bgms.push(items[i])
+                    }
+                }
+            }
+            updateList("")
+        })
+    }
 
     function updateList(searchTerm) {
+        _isCalendar = true
         listModel.clear()
-        for (var i=0; i<continents.length; i++) {
-            if (searchTerm == "" || continents[i].indexOf(searchTerm) >= 0) {
-                listModel.append({"name": continents[i], "sid": 0, "icon": ''})
+        for (var i=0; i<bgms.length; i++) {
+            if (searchTerm == "" || bgms[i].name.toLowerCase().indexOf(searchTerm.toLowerCase()) >= 0) {
+                listModel.append({"name": bgms[i].name, "sid": bgms[i].id, "weekday": bgms[i].air_weekday, "icon": '' })
             }
         }
     }
 
     function doSearch(searchTerm) {
+        _isCalendar = false
         // Search subject id
         var prefix3 = searchTerm.substr(0,3).toLowerCase()
         if (prefix3 === "id:" || prefix3 === "id " || prefix3 === "id=") {
@@ -108,6 +142,7 @@ Page {
                 listModel.append({
                                      "name": subjects[i].name,
                                      "sid": subjects[i].id,
+                                     "weekday": -1,
                                      "icon": getTypeIcon(subjects[i].type)
                                  })
             }

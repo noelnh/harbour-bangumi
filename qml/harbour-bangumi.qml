@@ -36,7 +36,7 @@ ApplicationWindow
         visible: false
         width: parent.width
         height: parent.height
-        z: 0
+        z: 10
         color: 'black'
         opacity: 0
 
@@ -83,5 +83,23 @@ ApplicationWindow
             msgOverlay.opacity = 0.618
             closeTimer.restart()
         }
+    }
+
+    function getWeekdaySymbol(weekday) {
+        var delta = 12889
+        switch (weekday_type) {
+            case 1:
+                delta = 12889
+                break
+            case 2:
+                if (weekday !== '7')
+                    delta = 12879
+                // sunday is 12889
+                break
+            case 0:
+            default:
+                delta = 9263
+        }
+        return String.fromCharCode(weekday.charCodeAt(0) + delta)
     }
 }

@@ -132,23 +132,7 @@ Page {
                         right: parent.right
                         rightMargin: Theme.paddingMedium
                     }
-                    text: {
-                        var delta = 12889
-                        switch (weekday_type) {
-                            case 1:
-                                delta = 12889
-                                break
-                            case 2:
-                                if (weekday !== '7')
-                                    delta = 12879
-                                // sunday is 12889
-                                break
-                            case 0:
-                            default:
-                                delta = 9263
-                        }
-                        return String.fromCharCode(weekday.charCodeAt(0) + delta)
-                    }
+                    text: getWeekdaySymbol(weekday)
                 }
                 Label {
                     id: statusLabel
